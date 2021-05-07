@@ -1,12 +1,20 @@
 <?php 
+error_reporting(0);
 include ("../database/koneksi.php");
+include ("data/data-hapus-jurusan.php");
+include ("data/data-hapus-konsentrasi.php");
+
+$data = $_POST['data'];
+$fak = mysqli_num_rows(mysqli_query($conn,"select * from fakultas"));
+$kon = mysqli_num_rows(mysqli_query($conn,"select * from konsentrasi"));
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8">
   <meta content="width=device-width, initial-scale=1, maximum-scale=1, shrink-to-fit=no" name="viewport">
-  <title>Ecommerce Dashboard &mdash; Stisla</title>
+  <title> SISTEM SKRIPSI</title>
 
   <!-- General CSS Files -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
@@ -97,31 +105,45 @@ include ("../database/koneksi.php");
                     <div class="d-none d-sm-block d-sm-none d-md-block d-md-none d-md-block d-lg-none d-xl-block mb-2 ml-2">
                       <button class="btn btn-primary tambah-konsentrasi btn-lg btn-block"><i class="fas fa-plus"></i> Konsentrasi</button>
                     </div> 
+                    <div class="col-lg-9 d-flex justify-content-end align-items-center">
+                      <?php
+                      if (isset($data)) {
+                       if (($data == $fak) || ($data == $kon)) {
+                        echo "<span class='badge badge-danger gagal'>Data Gagal Ditambahkan!</span>";
+                      }elseif (($data < $fak) || ($data < $kon)) {
+                        echo "<span class='badge badge-success berhasil'>Data Berhasil Ditambahkan!</span>";
+                      }
+                    } 
+                    ?>
                   </div>
-                  <hr>
-                  <div class="col-lg-12 mb-2">
-                    <div class="form-input"></div>
-                  </div>
+                </div>
+                <hr>
+                <div class="col-lg-12 mb-2">
+                  <div class="form-input"></div>
                 </div>
               </div>
             </div>
           </div>
-          <div class="tampil-fakultas"></div>
         </div>
-      </section>
-    </div>
-    <footer class="main-footer">
-      <div class="footer-left">
-        Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+        <div class="tampil-fakultas"></div>
       </div>
-      <div class="footer-right">
-        2.3.0
-      </div>
-    </footer>
+    </section>
   </div>
+  <footer class="main-footer">
+    <div class="footer-left">
+      Copyright &copy; 2018 <div class="bullet"></div> Design By <a href="https://nauval.in/">Muhamad Nauval Azhar</a>
+    </div>
+    <div class="footer-right">
+      2.3.0
+    </div>
+  </footer>
+</div>
 </div>
 
 <script type="text/javascript">
+
+  $(".gagal").show().fadeOut(3000);
+  $(".berhasil").show().fadeOut(3000);
 
   $(".tambah-jurusan").click(function(){
     $('.form-input').load('tambah-jurusan.php').hide().fadeIn(500);
@@ -133,7 +155,6 @@ include ("../database/koneksi.php");
 
   $('.tampil-fakultas').load('tampil-fakultas.php').hide().fadeIn(500);
 
-// .hide().fadeIn(1000)
 </script>
 
 <!-- General JS Scripts -->

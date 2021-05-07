@@ -1,17 +1,19 @@
 <?php 
 	include("../database/koneksi.php");
+	$dup = mysqli_num_rows(mysqli_query($conn,"select * from konsentrasi"));
  ?>
 <form action="index.php" method="POST" class="form-user">
-	<div class="form-row" >
+	<div class="form-row d-flex align-items-center justify-content-center" >
 		<div class="row col-md-12">
 			<div class="col-lg-3 mb-1">
+				<input type="hidden" name="data" value="<?php echo($dup); ?>">
 				<input type="text" class="form-control" name="id_kon" placeholder="Kode Konsentrasi" tabindex="1" required>
 			</div>
 			<div class="col-lg-3 mb-1">
 				<input type="text" class="form-control" name="konsentrasi" placeholder="Konsentrasi" tabindex="2" required>
 			</div>
 			<div class="col-lg-4 mb-1">
-				<select class="form-control" id="exampleFormControlSelect1">
+				<select class="form-control" id="exampleFormControlSelect1" name="fakultas">
 					<option selected disabled>Pilih Jurusan</option>
 					<?php 
 					$data = mysqli_query($conn,"select * from fakultas");
@@ -41,7 +43,7 @@
 			var data = $('.form-user').serialize();
 			$.ajax({
 				type: 'POST',
-				url: "data/data-tambah-jurusan.php",
+				url: "data/data-tambah-konsentrasi.php",
 				data: data,
 				success: function() {
 

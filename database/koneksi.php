@@ -1,6 +1,6 @@
 <?php
 	$servername = "localhost";
-	$database = "latihan_db";
+	$database = "sistemskripsi_db";
 	$username = "root";
 	$password = "";
 	// Create connection

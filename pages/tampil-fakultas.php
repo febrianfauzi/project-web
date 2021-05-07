@@ -13,7 +13,7 @@ include ("../database/koneksi.php");
   }
 </style>
 <div class="row">
-  <div class="col-md-4">
+  <div class="col-md-5">
     <div class="card card-hero">
       <div class="card-header">
         <h4>Fakultas</h4>
@@ -22,8 +22,9 @@ include ("../database/koneksi.php");
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-striped">
             <tr>
-              <th scope="col">Kode Fakultas</th>
+              <th scope="col">Kode</th>
               <th scope="col">Fakultas</th>
+              <th scope="col">Action</th>
             </tr>
             <tbody>
               <?php 
@@ -33,6 +34,7 @@ include ("../database/koneksi.php");
                 <tr>
                   <td><?php echo $d['id_fak'] ?></td>
                   <td class="font-weight-600"><?php echo $d['fakultas'] ?></td>
+                  <td><a href="index.php?h_fak=<?php echo $d['id_fak'] ?>" type="button" name="status" title="Hapus data?" class="btn btn-danger rounded-circle status"><i class="fas fa-trash"></i></a></td>
                 </tr>
               <?php } ?>
             </tbody>
@@ -41,7 +43,7 @@ include ("../database/koneksi.php");
       </div>
     </div>
   </div>
-  <div class="col-md-4">
+  <div class="col-md-5">
     <div class="card card-hero">
       <div class="card-header">
         <h4>Konsentrasi</h4>
@@ -50,51 +52,25 @@ include ("../database/koneksi.php");
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-striped mb-0">
             <tr>
-              <th scope="col">#</th>
-              <th scope="col">First</th>
-              <th scope="col">Last</th>
-              <th scope="col">Handle</th>
+              <th scope="col">Kode</th>
+              <th scope="col">Konsentrasi</th>
+              <th scope="col">Jurusan</th>
+              <th scope="col">Action</th>
             </tr>
             <tbody>
-              <tr>
-                <th scope="row">1</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">2</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">3</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
-              <tr>
-                <th scope="row">4</th>
-                <td>Mark</td>
-                <td>Otto</td>
-                <td>@mdo</td>
-              </tr>
-              <tr>
-                <th scope="row">5</th>
-                <td>Jacob</td>
-                <td>Thornton</td>
-                <td>@fat</td>
-              </tr>
-              <tr>
-                <th scope="row">6</th>
-                <td>Larry</td>
-                <td>the Bird</td>
-                <td>@twitter</td>
-              </tr>
+              <?php 
+              $data = mysqli_query($conn,"select * from konsentrasi");
+              while($d=mysqli_fetch_array($data)){
+                ?>
+                <tr>
+                  <td><?php echo $d['id_kon'] ?></td>
+                  <td class="font-weight-600"><?php echo $d['konsentrasi'] ?></td>
+                  <td class="font-weight-600"><?php echo $d['fakultas'] ?></td>
+                  <td><a href="index.php?h_kon=<?php echo $d['id_kon'] ?>" type="button" name="status" title="Hapus data?" class="btn btn-danger rounded-circle status"><i class="fas fa-trash"></i></a></td>
+                </tr>
+              <?php } ?>
             </tbody>
           </table>
-
         </div>
       </div>
     </div>

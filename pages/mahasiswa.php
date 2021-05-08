@@ -1,13 +1,12 @@
 <?php 
 error_reporting(0);
 include ("../database/koneksi.php");
-include ("data/data-hapus-jurusan.php");
-include ("data/data-hapus-konsentrasi.php");
+include ("data/data-hapus-mahasiswa.php");
+include ("data/data-edit-skripsi.php");
 
 $data = $_POST['data'];
-$fak = mysqli_num_rows(mysqli_query($conn,"select * from fakultas"));
-$kon = mysqli_num_rows(mysqli_query($conn,"select * from konsentrasi"));
-
+$mah = mysqli_num_rows(mysqli_query($conn,"select * from mahasiswa"));
+$info = $_POST['info'];
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -45,8 +44,20 @@ $kon = mysqli_num_rows(mysqli_query($conn,"select * from konsentrasi"));
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
+            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
             <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
             <div class="dropdown-menu dropdown-menu-right">
+              <div class="dropdown-title">Logged in 5 min ago</div>
+              <a href="features-profile.html" class="dropdown-item has-icon">
+                <i class="far fa-user"></i> Profile
+              </a>
+              <a href="features-activities.html" class="dropdown-item has-icon">
+                <i class="fas fa-bolt"></i> Activities
+              </a>
+              <a href="features-settings.html" class="dropdown-item has-icon">
+                <i class="fas fa-cog"></i> Settings
+              </a>
+              <div class="dropdown-divider"></div>
               <a href="#" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
@@ -57,14 +68,14 @@ $kon = mysqli_num_rows(mysqli_query($conn,"select * from konsentrasi"));
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Sistem Skripsi</a>
+            <a href="index.php">Sistem Skripsi</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">SS</a>
+            <a href="index.php">SS</a>
           </div>
           <ul class="sidebar-menu">
-            <li class="active"><a class="nav-link" href="index.php"><i class="fas fa-university"></i> <span>Beranda</span></a></li>
-            <li><a class="nav-link" href="mahasiswa.php"><i class="fas fa-graduation-cap"></i> <span>Mahasiswa</span></a></li>
+            <li><a class="nav-link" href="index.php"><i class="fas fa-university"></i> <span>Beranda</span></a></li>
+            <li class="active"><a class="nav-link" href="mahasiswa.php"><i class="fas fa-graduation-cap"></i> <span>Mahasiswa</span></a></li>
             <li><a class="nav-link" href="dosen.php"><i class="fas fa-chalkboard-teacher"></i> <span>Dosen</span></a></li>
           </ul>
         </aside>
@@ -74,7 +85,7 @@ $kon = mysqli_num_rows(mysqli_query($conn,"select * from konsentrasi"));
       <div class="main-content">
         <section class="section">
           <div class="section-header">
-            <h1>Beranda</h1>
+            <h1>Mahasiswa</h1>
           </div>
           <div class="row">
             <div class="col-lg-12">
@@ -82,47 +93,46 @@ $kon = mysqli_num_rows(mysqli_query($conn,"select * from konsentrasi"));
                 <div class="card-body">
                   <div class="row">
                     <div class="col-md-5 col-lg-2 d-xl-none mb-2">
-                      <button class="btn btn-primary tambah-jurusan btn-lg btn-block"><i class="fas fa-plus"></i> Jurusan</button>
-                    </div>
-                    <div class="col-md-5 col-lg-2 d-xl-none mb-2">
-                      <button class="btn btn-primary tambah-konsentrasi btn-lg btn-block"><i class="fas fa-plus"></i> Konsentrasi</button>
+                      <button class="btn btn-primary tambah-mahasiswa btn-lg btn-block"><i class="fas fa-plus"></i> Mahasiswa</button>
                     </div>
                     <div class="d-none d-sm-block d-sm-none d-md-block d-md-none d-md-block d-lg-none d-xl-block mb-2 ml-2">
-                      <button class="btn btn-primary tambah-jurusan btn-lg btn-block"><i class="fas fa-plus"></i> Jurusan</button>
+                      <button class="btn btn-primary tambah-mahasiswa btn-lg btn-block"><i class="fas fa-plus"></i> Mahasiswa</button>
                     </div>
-                    <div class="d-none d-sm-block d-sm-none d-md-block d-md-none d-md-block d-lg-none d-xl-block mb-2 ml-2">
-                      <button class="btn btn-primary tambah-konsentrasi btn-lg btn-block"><i class="fas fa-plus"></i> Konsentrasi</button>
-                    </div> 
-                    <div class="col-lg-9 d-flex justify-content-end align-items-center">
+                    <div class="col-lg-10 d-flex justify-content-end align-items-center">
                       <?php
                       if (isset($data)) {
-                       if (($data == $fak) || ($data == $kon)) {
-                        echo "<span class='badge badge-danger info'>Data Gagal Ditambahkan!</span>";
-                      }elseif (($data < $fak) || ($data < $kon)) {
-                        echo "<span class='badge badge-success info'>Data Berhasil Ditambahkan!</span>";
+                        if ($data < $mah) {
+                          echo "<span class='badge badge-success info'>Data Berhasil Ditambahkan!</span>";
+                        }else{
+                          if (empty($info)) {
+                            echo "<span class='badge badge-danger info'>Data Gagal Ditambahkan!</span>";
+                          }else{
+                            echo "<span class='badge badge-info info'>Data Berhasil Diubah!</span>";
+                          }
+                        }
                       }
-                    }
-                    if ((isset($_GET['h_fak'])) || (isset($_GET['h_kon']))) {
-                       echo "<span class='badge badge-warning info'>Data Berhasil Dihapus!</span>";
-                     } 
-                    ?>
-                  </div>
-                </div>
-                <hr>
-                <div class="col-lg-12 mb-2">
+                      if (isset($_GET['h_mah'])) {
+                        echo "<span class='badge badge-warning info'>Data Berhasil Dihapus!</span>";
+                     }
+                     ?>
+                   </div>
+                 </div>
+                 <hr>
+                 <div class="col-lg-12 mb-2">
                   <div class="form-input"></div>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div class="tampil-fakultas"></div>
+        <div class="tampil-mahasiswa"></div>
       </div>
     </section>
   </div>
   <footer class="main-footer">
     <div class="footer-left">
       Copyright &copy; 2021 <div class="bullet">
+    </div>
     <div class="footer-right">
       2.3.0
     </div>
@@ -130,19 +140,35 @@ $kon = mysqli_num_rows(mysqli_query($conn,"select * from konsentrasi"));
 </div>
 </div>
 
+<?php 
+if (isset($_GET['e_mah'])) {
+  ?>
+  <script type="text/javascript">
+    var nim = "<?php echo $_GET['e_mah']; ?>";
+
+    $.ajax({
+      type: "POST",
+      dataType: "html",
+      url: "edit-mahasiswa.php",
+      data: "nim="+nim,
+      success: function(data){
+        $(".form-input").html(data);
+      }
+    });
+  </script>
+  <?php
+}
+?>
+
 <script type="text/javascript">
 
   $(".info").show().fadeOut(3000);
 
-  $(".tambah-jurusan").click(function(){
-    $('.form-input').load('tambah-jurusan.php').hide().fadeIn(500);
+  $(".tambah-mahasiswa").click(function(){
+    $('.form-input').load('tambah-mahasiswa.php').hide().fadeIn(500);
   });
 
-  $(".tambah-konsentrasi").click(function(){
-    $('.form-input').load('tambah-konsentrasi.php').hide().fadeIn(500);
-  });
-
-  $('.tampil-fakultas').load('tampil-fakultas.php').hide().fadeIn(500);
+  $('.tampil-mahasiswa').load('tampil-mahasiswa.php').hide().fadeIn(500);
 
 </script>
 

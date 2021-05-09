@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Bulan Mei 2021 pada 04.30
+-- Waktu pembuatan: 09 Bulan Mei 2021 pada 08.24
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.5
 
@@ -118,6 +118,32 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jurusan`, `konsentrasi`, `email`, `stat
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `skripsi`
+--
+
+CREATE TABLE `skripsi` (
+  `id_skripsi` int(8) NOT NULL,
+  `judul` text NOT NULL,
+  `deskripsi` text NOT NULL,
+  `nama` varchar(30) NOT NULL,
+  `dosen` varchar(30) NOT NULL,
+  `status` varchar(20) NOT NULL,
+  `konsentrasi` varchar(30) NOT NULL,
+  `des_dosen` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+--
+-- Dumping data untuk tabel `skripsi`
+--
+
+INSERT INTO `skripsi` (`id_skripsi`, `judul`, `deskripsi`, `nama`, `dosen`, `status`, `konsentrasi`, `des_dosen`) VALUES
+(5, 'Perancangan Sistem Informasi Manajemen Rumah Sakit', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', 'Hadi Perban', '', 'Ditolak', 'Robotic', 'Judul Pasaran'),
+(8, 'Rancang Bangun Aplikasi Alat Musik Kolintang Menggunakan Augmented Reality Berbasis Android', 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', 'Hadi Perban', 'Permana K.', 'Diterima', 'Robotic', ''),
+(9, 'Rancang Bangun Aplikasi Bimbingan Dosen Wali Secara Online', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', 'Budi budiman', '', 'Tunggu', 'Android', '');
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `user`
 --
 
@@ -172,6 +198,22 @@ ALTER TABLE `konsentrasi`
 --
 ALTER TABLE `mahasiswa`
   ADD PRIMARY KEY (`nim`);
+
+--
+-- Indeks untuk tabel `skripsi`
+--
+ALTER TABLE `skripsi`
+  ADD PRIMARY KEY (`id_skripsi`);
+
+--
+-- AUTO_INCREMENT untuk tabel yang dibuang
+--
+
+--
+-- AUTO_INCREMENT untuk tabel `skripsi`
+--
+ALTER TABLE `skripsi`
+  MODIFY `id_skripsi` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

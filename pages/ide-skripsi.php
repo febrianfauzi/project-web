@@ -108,8 +108,6 @@ $d=mysqli_fetch_array($sta);
         </div>
       </section>
     </div>
-    
-    <?php include ("../template/footer.php"); ?>
 
     <script type="text/javascript">
 
@@ -129,5 +127,6 @@ $d=mysqli_fetch_array($sta);
         });
       });
     </script>
+    <?php include ("../template/footer.php"); ?>
   </body>
   </html>

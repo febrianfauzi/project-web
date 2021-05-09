@@ -11,7 +11,7 @@ $sta = mysqli_query($conn,"select * from dosen where nidn='$nidn'");
 $d=mysqli_fetch_array($sta);
 $konsen = $d['konsentrasi'];
 
-$cek = mysqli_num_rows(mysqli_query($conn,"select * from skripsi where konsentrasi='$konsen' and status='Tunggu'"));
+$cek = mysqli_num_rows(mysqli_query($conn,"select * from skripsi where konsentrasi='$konsen' and dosen ='$user' and status = 'Diterima'"));
 
 ?>
 <?php include ("../template/header.php"); ?>
@@ -48,8 +48,8 @@ $cek = mysqli_num_rows(mysqli_query($conn,"select * from skripsi where konsentra
             </div>
             <ul class="sidebar-menu">
               <li><a class="nav-link" href="index-dosen.php"><i class="fas fa-university"></i> <span>Pemberitahuan</span></a></li>
-              <li class="active"><a class="nav-link " href="dosen-ideskripsi.php"><i class="fas fa-file-alt"></i> <span>Ide Skripsi</span></a></li>
-              <li><a class="nav-link " href="list-skripsi.php"><i class="fas fa-comment-dots"></i> <span>List Skripsi</span></a></li>
+              <li><a class="nav-link " href="dosen-ideskripsi.php"><i class="fas fa-file-alt"></i> <span>Ide Skripsi</span></a></li>
+              <li  class="active"><a class="nav-link " href="list-skripsi.php"><i class="fas fa-comment-dots"></i> <span>List Skripsi</span></a></li>
             </ul>
           </aside>
         </div>
@@ -58,7 +58,7 @@ $cek = mysqli_num_rows(mysqli_query($conn,"select * from skripsi where konsentra
         <div class="main-content">
           <section class="section">
             <div class="section-header">
-              <h1>Ide Skripsi</h1>
+              <h1>List Skripsi</h1>
             </div>
             <?php if ($cek == 0){ echo '
             <div class="row">
@@ -102,10 +102,9 @@ $cek = mysqli_num_rows(mysqli_query($conn,"select * from skripsi where konsentra
 
     <script type="text/javascript">
 
-      $('.isi-skripsi').load('dosen-acc-skripsi.php');
+      $('.isi-skripsi').load('tampil-listskripsi.php');
 
     </script>
 
-   
   </body>
   </html>

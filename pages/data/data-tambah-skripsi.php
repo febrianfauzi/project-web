@@ -7,7 +7,7 @@ $konsentrasi = $_POST['konsentrasi'];
 
 if ($judul != "") {
 
-	mysqli_query($conn,"insert into skripsi values(null,'$judul','$deskripsi','$nama','','Tunggu','$konsentrasi')");
+	mysqli_query($conn,"insert into skripsi values(null,'$judul','$deskripsi','$nama','','Tunggu','$konsentrasi','')");
 
 }
 ?>

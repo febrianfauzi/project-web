@@ -10,7 +10,7 @@ $nidn = $_SESSION['id'];
 ?>
 
 <div class="col-lg-12">
-	<h4>Ide Skripsi Yang Tersedia!</h4>
+	<h4>Ide Skripsi Anda!</h4>
 	<table>
 		<?php 
 		$data = mysqli_query($conn,"select * from skripsi where nama = '$user'");

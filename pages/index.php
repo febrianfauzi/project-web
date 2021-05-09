@@ -3,6 +3,11 @@ error_reporting(0);
 include ("../database/koneksi.php");
 include ("data/data-hapus-jurusan.php");
 include ("data/data-hapus-konsentrasi.php");
+include ("../akses.php");
+include ("../akses-dosen.php");
+include ("../akses-mahasiswa.php");
+
+$user = $_SESSION["nama"];
 
 $data = $_POST['data'];
 $fak = mysqli_num_rows(mysqli_query($conn,"select * from fakultas"));
@@ -45,9 +50,10 @@ $kon = mysqli_num_rows(mysqli_query($conn,"select * from konsentrasi"));
         </form>
         <ul class="navbar-nav navbar-right">
           <li class="dropdown"><a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-            <div class="d-sm-none d-lg-inline-block">Hi, Ujang Maman</div></a>
+            <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
+            <div class="d-sm-none d-lg-inline-block"><?php echo $user; ?></div></a>
             <div class="dropdown-menu dropdown-menu-right">
-              <a href="#" class="dropdown-item has-icon text-danger">
+              <a href="../logout.php" class="dropdown-item has-icon text-danger">
                 <i class="fas fa-sign-out-alt"></i> Logout
               </a>
             </div>
@@ -57,10 +63,10 @@ $kon = mysqli_num_rows(mysqli_query($conn,"select * from konsentrasi"));
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="index.html">Sistem Skripsi</a>
+            <a href="index.php">Sistem Skripsi</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="index.html">SS</a>
+            <a href="index.php">SS</a>
           </div>
           <ul class="sidebar-menu">
             <li class="active"><a class="nav-link" href="index.php"><i class="fas fa-university"></i> <span>Beranda</span></a></li>

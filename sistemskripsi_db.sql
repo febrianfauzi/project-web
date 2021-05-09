@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 08 Bulan Mei 2021 pada 10.27
+-- Waktu pembuatan: 09 Bulan Mei 2021 pada 04.30
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.5
 
@@ -40,10 +40,10 @@ CREATE TABLE `dosen` (
 --
 
 INSERT INTO `dosen` (`nidn`, `nama`, `jurusan`, `konsentrasi`, `email`) VALUES
-(100, 'Hartono H.', 'Teknik Informatika', 'Android', 'harto@gmail.com'),
-(101, 'Permana K.', 'Teknik Informatika', 'Robotic', 'permana@gmail.com'),
-(102, 'Lisnawati A.', 'Teknik Informatika', 'AI', 'lisna@gmail.com'),
-(103, 'Riani L.', 'Teknik Informatika', 'AI', 'riani@gmail.com');
+(100100, 'Hartono H.', 'Teknik Informatika', 'Android', 'harto@gmail.com'),
+(100101, 'Lisnawati A.', 'Kimia', 'Riset', 'lisna@gmail.com'),
+(100102, 'Permana K.', 'Teknik Informatika', 'Robotic', 'permana@gmail.com'),
+(100103, 'Riani L.', 'Teknik Informatika', 'AI', 'riani@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -109,9 +109,11 @@ CREATE TABLE `mahasiswa` (
 
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jurusan`, `konsentrasi`, `email`, `status`) VALUES
 (10118182, 'Budi budiman', 'Teknik Informatika', 'Android', 'budi@gmail.com', 'Skripsi'),
-(10118183, 'Hadi Perban', 'Kimia', 'Riset', 'hadi@gmail.com', 'Mahasiswa'),
-(10118184, 'Ahmad Karbit', 'Teknik Informatika', 'AI', 'ahmad@gmail.com', 'Mahasiswa'),
-(10118185, 'Mamat Rante', 'Teknik Informatika', 'Robotic', 'mamat@gmail.com', 'Mahasiswa');
+(10118183, 'Hadi Perban', 'Teknik Informatika', 'Robotic', 'hadi@gmail.com', 'Skripsi'),
+(10118184, 'Ahmad Karbit', 'Teknik Informatika', 'Android', 'ahmad@gmail.com', 'Mahasiswa'),
+(10118185, 'Mamat Rante', 'Kimia', 'Riset', 'mamat@gmail.com', 'Mahasiswa'),
+(10118186, 'Opik Bedog', 'Teknik Informatika', 'AI', 'opik@gmail.com', 'Mahasiswa'),
+(10118187, 'Asep Semen', 'Kimia', 'Riset', 'asep@gmail.com', 'Mahasiswa');
 
 -- --------------------------------------------------------
 
@@ -121,6 +123,7 @@ INSERT INTO `mahasiswa` (`nim`, `nama`, `jurusan`, `konsentrasi`, `email`, `stat
 
 CREATE TABLE `user` (
   `role` int(1) NOT NULL,
+  `nama` varchar(30) NOT NULL,
   `user` varchar(30) NOT NULL,
   `password` varchar(30) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
@@ -129,16 +132,18 @@ CREATE TABLE `user` (
 -- Dumping data untuk tabel `user`
 --
 
-INSERT INTO `user` (`role`, `user`, `password`) VALUES
-(1, 'admin', 'admin'),
-(3, '10118182', 'mahasiswa'),
-(2, '100', 'dosen'),
-(2, '101', 'dosen'),
-(2, '102', 'dosen'),
-(3, '10118183', 'mahasiswa'),
-(2, '103', 'dosen'),
-(3, '10118184', 'mahasiswa'),
-(3, '10118185', 'mahasiswa');
+INSERT INTO `user` (`role`, `nama`, `user`, `password`) VALUES
+(1, 'Admin', 'admin', 'admin'),
+(3, 'Budi budiman', '10118182', 'mahasiswa'),
+(3, 'Hadi Perban', '10118183', 'mahasiswa'),
+(3, 'Ahmad Karbit', '10118184', 'mahasiswa'),
+(3, 'Mamat Rante', '10118185', 'mahasiswa'),
+(3, 'Opik Bedog', '10118186', 'mahasiswa'),
+(3, 'Asep Semen', '10118187', 'mahasiswa'),
+(2, 'Hartono H.', '100100', 'dosen'),
+(2, 'Lisnawati A.', '100101', 'dosen'),
+(2, 'Permana K.', '100102', 'dosen'),
+(2, 'Riani L.', '100103', 'dosen');
 
 --
 -- Indexes for dumped tables

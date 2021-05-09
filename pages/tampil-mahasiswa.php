@@ -41,7 +41,7 @@ include ("../database/koneksi.php");
                   <td class="font-weight-600"><?php echo $d['jurusan'] ?></td>
                   <td class="font-weight-600"><?php echo $d['konsentrasi'] ?></td>
                   <td class="font-weight-600"><?php echo $d['email'] ?></td>
-                  <td class="font-weight-600"><a href="mahasiswa.php?nim=<?php echo $d['nim']; ?>&status=skripsi"><span class='badge badge-info'><?php echo $d['status'] ?></span></a></td>
+                  <td class="font-weight-600"><a href="mahasiswa.php?nim=<?php echo $d['nim']; ?>&status=skripsi" title="Udah Menjadi Skripsi?"><span class='badge badge-info'><?php echo $d['status'] ?></span></a></td>
                   <td>
                     <a href="mahasiswa.php?e_mah=<?php echo $d['nim'] ?>" type="button" name="edit" id="edit" title="Hapus data?" class="btn btn-warning rounded-circle edit"><i class="fas fa-pen"></i></a>
                     <a href="mahasiswa.php?h_mah=<?php echo $d['nim'] ?>" type="button" name="status" title="Hapus data?" class="btn btn-danger rounded-circle"><i class="fas fa-trash"></i></a>

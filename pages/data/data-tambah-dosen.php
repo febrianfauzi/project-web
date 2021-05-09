@@ -10,7 +10,7 @@
 		$dup = mysqli_num_rows(mysqli_query($conn,"select * from dosen where nidn = '$nidn'"));
 		if ($dup == 0) {
 			mysqli_query($conn,"insert into dosen values('$nidn','$nama','$jurusan','$konsentrasi','$email')");
-			mysqli_query($conn,"insert into user values('2','$nidn','dosen')");
+			mysqli_query($conn,"insert into user values('2','$nama','$nidn','dosen')");
 		}
 	}
 ?>

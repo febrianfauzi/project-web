@@ -48,8 +48,8 @@ $cek = mysqli_num_rows(mysqli_query($conn,"select * from skripsi where konsentra
             </div>
             <ul class="sidebar-menu">
               <li class="active"><a class="nav-link" href="index-dosen.php"><i class="fas fa-university"></i> <span>Pemberitahuan</span></a></li>
-              <li><a class="nav-link " href="dosen-ideskripsi.php"><i class="fas fa-file-alt"></i> <span>Ide Skripsi</span></a></li>
-              <li><a class="nav-link " href="list-skripsi.php"><i class="fas fa-file-alt"></i> <span>List Skripsi</span></a></li>
+              <li><a class="nav-link " href="dosen-ideskripsi.php"><i class="fas fa-file-alt"></i> <span>Skripsi</span></a></li>
+              <li><a class="nav-link " href="list-skripsi.php"><i class="fas fa-folder-open"></i> <span>List Skripsi</span></a></li>
             </ul>
           </aside>
         </div>
@@ -58,7 +58,13 @@ $cek = mysqli_num_rows(mysqli_query($conn,"select * from skripsi where konsentra
         <div class="main-content">
           <section class="section">
             <div class="section-header">
+              <div class="col-lg-7">
               <h1>Pemberitahuan</h1>
+              </div>
+              <div class="d-flex d-flex align-items-end flex-column bd-highlight col-lg-5">
+                <span><?php echo $d['jurusan']; echo "(".$d['konsentrasi'].")"; ?></span>
+                <h5><?php echo $d['nama'];?></h5>
+              </div>
             </div>
             <?php if ($cek == 0){ echo '
             <div class="row">

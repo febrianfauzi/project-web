@@ -26,19 +26,19 @@ if (isset($_POST['login'])) {
         $_SESSION['nama'] = $data['nama'];
         
             // alihkan ke halaman dashboard admin
-        echo "<script>document.location.href='pages';alert('Login Berhasil');</script>";
+        echo "<script>document.location.href='pages';alert('Login Berhasil Sebagai Admin');</script>";
       }elseif($data['role'] == 2){
         $_SESSION['users'] = "Dosen";
         $_SESSION['id'] = $data['user'];
         $_SESSION['nama'] = $data['nama'];
             // alihkan ke halaman dashboard admin
-        echo "<script>alert('Login Berhasil');document.location.href='pages/index-dosen.php';</script>";
+        echo "<script>alert('Login Berhasil Sebagai $data[nama]');document.location.href='pages/index-dosen.php';</script>";
       }elseif($data['role'] == 3){
         $_SESSION['users'] = "Mahasiswa";
         $_SESSION['id'] = $data['user'];
         $_SESSION['nama'] = $data['nama'];
             // alihkan ke halaman dashboard admin
-        echo "<script>alert('Login Berhasil');document.location.href='pages/index-mahasiswa.php';</script>";
+        echo "<script>alert('Login Berhasil Sebagai $data[nama]');document.location.href='pages/index-mahasiswa.php';</script>";
       }
     } else {
 
@@ -79,9 +79,13 @@ if (isset($_POST['login'])) {
             <div class="card card-primary">
               <div class="card-header"><h4>Login</h4></div>
               <div class="card-body">
+                <span>Untuk Mahasiswa, silahkan login menggunakan <b>username(NIM)</b> dan <b>password(mahasiswa)</b>.</span><br><br>
+                <span>Untuk Dosen, silahkan login menggunakan <b>username(NIDK)</b> dan <b>password(dosen)</b>.</span>
+                <hr>
                 <form method="POST" action="" class="needs-validation" novalidate="">
                   <div class="form-group">
-                    <label for="email">Username</label>
+                    <label for="email">NIM/NIDK</label>
+                    
                     <input id="email" type="text" class="form-control" name="username" tabindex="1" required autofocus>
                     <div class="invalid-feedback">
                       Username tidak boleh kosong

@@ -28,7 +28,9 @@ $user = $_SESSION["nama"];
 						<div class="card">
 							<div class="card-body border border-info rounded">
 								<h5><small><i class="fa fa-book"></i></small> <?php echo $d['judul']; ?></h5>
-								<small><?php echo $d['deskripsi']; ?></small>
+								<h6><span class="badge badge-info">Pembimbing: <?php echo $d['dosen']; ?></span></h6>
+								<small><?php echo $d['deskripsi']; ?></small><br><br>
+								<small><b>Download Proposal: </b><a href="ide-skripsi.php?file=<?php echo $d['file']; ?>"><?php echo $d['file']; ?></a></small>
 							</div>
 						</div>
 					</td>

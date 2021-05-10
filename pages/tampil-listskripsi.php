@@ -22,9 +22,10 @@ $konsen = $d['konsentrasi'];
 				<td>
 					<div class="card">
 						<div class="card-body border border-info rounded">
-							<span class="badge badge-info"><i class="fa fa-graduation-cap"></i> <?php echo $r['nama']; ?></span>
 							<h5><small><i class="fa fa-book"></i></small> <?php echo $r['judul']; ?></h5>
-							<small><?php echo $r['deskripsi']; ?></small>
+							<h6><span class="badge badge-info"><i class="fa fa-graduation-cap"></i> <?php echo $r['nama']; ?></span></h6>
+							<small><?php echo $r['deskripsi']; ?></small><br>
+							<small><b>Download Proposal: </b><a href="dosen-acc-skripsi.php?file=<?php echo $r['file']; ?>"><?php echo $r['file']; ?></a></small>
 						</div>
 					</div>
 				</td>

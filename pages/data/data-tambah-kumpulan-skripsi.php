@@ -1,10 +1,6 @@
 <?php 
 include '../../database/koneksi.php';
 $judul = $_POST['judul'];
-$deskripsi = $_POST['deskripsi'];
-$nama = $_POST['nama'];
-$konsentrasi = $_POST['konsentrasi'];
-$dosen = $_POST['pembimbing'];
 
 if ($judul != "") {
 	 
@@ -12,10 +8,10 @@ if ($judul != "") {
 if ($tipe_file == "application/pdf"){ //mengecek apakah file tersebu pdf atau bukan
  $nama_file = trim($_FILES['nama_file']['name']);
 
-mysqli_query($conn,"insert into skripsi values(null,'$judul','$deskripsi','$nama','$dosen','Tunggu','$konsentrasi','','')");
+mysqli_query($conn,"insert into list_skripsi values(null,'$judul','')");
 
  //dapatkan id terkahir
- $query = mysqli_query($conn,"SELECT id_skripsi FROM skripsi ORDER BY id_skripsi DESC LIMIT 1");
+ $query = mysqli_query($conn,"SELECT id_skripsi FROM list_skripsi ORDER BY id_skripsi DESC LIMIT 1");
  $data  = mysqli_fetch_array($query);
 
  //mengganti nama pdf
@@ -25,8 +21,8 @@ mysqli_query($conn,"insert into skripsi values(null,'$judul','$deskripsi','$nama
 
  move_uploaded_file($file_temp, "$folder/$nama_baru"); //fungsi upload
  //update nama file di database
- mysqli_query($conn,"UPDATE skripsi SET file='$nama_baru' WHERE id_skripsi='$data[id_skripsi]'");
- header('location:../ide-skripsi.php');
+ mysqli_query($conn,"UPDATE list_skripsi SET file='$nama_baru' WHERE id_skripsi='$data[id_skripsi]'");
+ header('location:../upload-skripsi.php');
 
 }
 

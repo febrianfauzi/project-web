@@ -9,6 +9,17 @@ $nidn = $_SESSION['id'];
 $sta = mysqli_query($conn,"select * from dosen where nidn='$nidn'");
 $d=mysqli_fetch_array($sta);
 $konsen = $d['konsentrasi'];
+
+if(ISSET($_REQUEST['file'])){
+ $file = $_REQUEST['file'];
+ 
+  //header("Cache-Control: public");
+  //header("Content-Description: File Transfer");
+ header("Content-Disposition: attachment; filename=".basename($file));
+ header("Content-Type: application/octet-stream;");
+  //header("Content-Transfer-Encoding: binary");
+ readfile("files/".$file);
+}
 ?>
 
 <div class="col-lg-12">
@@ -31,6 +42,11 @@ $konsen = $d['konsentrasi'];
 											<small><?php echo $r['deskripsi']; ?></small>
 										</td>
 									</tr>
+									<tr>
+										<td colspan="2">
+											<br><small><b>Download Proposal: </b><a href="dosen-acc-skripsi.php?file=<?php echo $r['file']; ?>"><?php echo $r['file']; ?></a></small>
+										</td>
+									</tr>
 								</tr>
 								<tr>
 									<td colspan="2">
@@ -39,17 +55,6 @@ $konsen = $d['konsentrasi'];
 											<div class="form-group">
 												<textarea class="form-control" name="des-dosen" placeholder="Pesan untuk mahasiswa" style="height: 80px"></textarea>
 												<input type="hidden" name="id_skripsi" value="<?php echo $r['id_skripsi']; ?>">
-											</div>
-											<div class="form-group">
-												<select class="form-control" name="pembimbing" style="width: 300px;">
-													<option selected disabled>Dosen Pembimbing</option>
-													<?php 
-													$dosen = mysqli_query($conn,"select * from dosen where konsentrasi='$konsen'");
-													while($p=mysqli_fetch_array($dosen)){
-														?>
-														<option value="<?php echo $p['nama'] ?>"><?php echo $p['nama'] ?></option>
-													<?php } ?>
-												</select>
 											</div>
 											<button type="submit" class="btn btn-primary tombol-terima"><span><i class="fa fa-check"></i> Terima</button></span>
 											<button type="submit" class="btn btn-danger tombol-tolak"><span><i class="fa fa-times"></i> Tolak</button></span>

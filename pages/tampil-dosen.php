@@ -16,13 +16,13 @@ include ("../database/koneksi.php");
   <div class="col-md-12">
     <div class="card card-hero">
       <div class="card-header">
-        <h4>Mahasiswa</h4>
+        <h4>Dosen</h4>
       </div>
       <div class="card-body p-0">
         <div class="table-wrapper-scroll-y my-custom-scrollbar">
           <table class="table table-striped">
             <tr>
-              <th scope="col">NIDN</th>
+              <th scope="col">NIDK</th>
               <th scope="col">Nama</th>
               <th scope="col">Jurusan</th>
               <th scope="col">Konsentrasi</th>

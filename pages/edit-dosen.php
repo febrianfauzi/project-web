@@ -11,7 +11,7 @@ if (isset($_POST['nidn'])) {?>
 		<div class="form-row d-flex align-items-center justify-content-center" >
 			<div class="row col-md-12">
 				<div class="col-lg-2 mb-1">
-					<input type="text" class="form-control" name="nidn" placeholder="NIDN" tabindex="1" value="<?php echo $row['nidn'] ?>" readonly required>
+					<input type="text" class="form-control" name="nidn" placeholder="NIDK" tabindex="1" value="<?php echo $row['nidn'] ?>" readonly required>
 				</div>
 				<div class="col-lg-2 mb-1">
 					<input type="text" class="form-control" name="nama" placeholder="Nama" tabindex="2" value="<?php echo $row['nama'] ?>" required>

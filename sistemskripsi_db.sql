@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 09 Bulan Mei 2021 pada 08.24
+-- Waktu pembuatan: 10 Bulan Mei 2021 pada 15.34
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.5
 
@@ -43,7 +43,8 @@ INSERT INTO `dosen` (`nidn`, `nama`, `jurusan`, `konsentrasi`, `email`) VALUES
 (100100, 'Hartono H.', 'Teknik Informatika', 'Android', 'harto@gmail.com'),
 (100101, 'Lisnawati A.', 'Kimia', 'Riset', 'lisna@gmail.com'),
 (100102, 'Permana K.', 'Teknik Informatika', 'Robotic', 'permana@gmail.com'),
-(100103, 'Riani L.', 'Teknik Informatika', 'AI', 'riani@gmail.com');
+(100103, 'Riani L.', 'Teknik Informatika', 'AI', 'riani@gmail.com'),
+(100104, 'Hermawan S. ', 'Teknik Informatika', 'Android', 'hermawan@gmail.com');
 
 -- --------------------------------------------------------
 
@@ -91,6 +92,18 @@ INSERT INTO `konsentrasi` (`id_kon`, `konsentrasi`, `fakultas`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Struktur dari tabel `list_skripsi`
+--
+
+CREATE TABLE `list_skripsi` (
+  `id_skripsi` int(11) NOT NULL,
+  `judul` varchar(100) NOT NULL,
+  `file` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+
+-- --------------------------------------------------------
+
+--
 -- Struktur dari tabel `mahasiswa`
 --
 
@@ -110,8 +123,8 @@ CREATE TABLE `mahasiswa` (
 INSERT INTO `mahasiswa` (`nim`, `nama`, `jurusan`, `konsentrasi`, `email`, `status`) VALUES
 (10118182, 'Budi budiman', 'Teknik Informatika', 'Android', 'budi@gmail.com', 'Skripsi'),
 (10118183, 'Hadi Perban', 'Teknik Informatika', 'Robotic', 'hadi@gmail.com', 'Skripsi'),
-(10118184, 'Ahmad Karbit', 'Teknik Informatika', 'Android', 'ahmad@gmail.com', 'Mahasiswa'),
-(10118185, 'Mamat Rante', 'Kimia', 'Riset', 'mamat@gmail.com', 'Mahasiswa'),
+(10118184, 'Ahmad Karbit', 'Teknik Informatika', 'Android', 'ahmad@gmail.com', 'Skripsi'),
+(10118185, 'Mamat Rante', 'Kimia', 'Riset', 'mamat@gmail.com', 'Skripsi'),
 (10118186, 'Opik Bedog', 'Teknik Informatika', 'AI', 'opik@gmail.com', 'Mahasiswa'),
 (10118187, 'Asep Semen', 'Kimia', 'Riset', 'asep@gmail.com', 'Mahasiswa');
 
@@ -129,17 +142,9 @@ CREATE TABLE `skripsi` (
   `dosen` varchar(30) NOT NULL,
   `status` varchar(20) NOT NULL,
   `konsentrasi` varchar(30) NOT NULL,
-  `des_dosen` text NOT NULL
+  `des_dosen` text NOT NULL,
+  `file` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data untuk tabel `skripsi`
---
-
-INSERT INTO `skripsi` (`id_skripsi`, `judul`, `deskripsi`, `nama`, `dosen`, `status`, `konsentrasi`, `des_dosen`) VALUES
-(5, 'Perancangan Sistem Informasi Manajemen Rumah Sakit', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', 'Hadi Perban', '', 'Ditolak', 'Robotic', 'Judul Pasaran'),
-(8, 'Rancang Bangun Aplikasi Alat Musik Kolintang Menggunakan Augmented Reality Berbasis Android', 'The standard chunk of Lorem Ipsum used since the 1500s is reproduced below for those interested. Sections 1.10.32 and 1.10.33 from \"de Finibus Bonorum et Malorum\" by Cicero are also reproduced in their exact original form, accompanied by English versions from the 1914 translation by H. Rackham.', 'Hadi Perban', 'Permana K.', 'Diterima', 'Robotic', ''),
-(9, 'Rancang Bangun Aplikasi Bimbingan Dosen Wali Secara Online', 'Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots in a piece of classical Latin literature from 45 BC, making it over 2000 years old. Richard McClintock, a Latin professor at Hampden-Sydney College in Virginia, looked up one of the more obscure Latin words, consectetur, from a Lorem Ipsum passage, and going through the cites of the word in classical literature, discovered the undoubtable source. Lorem Ipsum comes from sections 1.10.32 and 1.10.33 of \"de Finibus Bonorum et Malorum\" (The Extremes of Good and Evil) by Cicero, written in 45 BC. This book is a treatise on the theory of ethics, very popular during the Renaissance. The first line of Lorem Ipsum, \"Lorem ipsum dolor sit amet..\", comes from a line in section 1.10.32.', 'Budi budiman', '', 'Tunggu', 'Android', '');
 
 -- --------------------------------------------------------
 
@@ -169,7 +174,8 @@ INSERT INTO `user` (`role`, `nama`, `user`, `password`) VALUES
 (2, 'Hartono H.', '100100', 'dosen'),
 (2, 'Lisnawati A.', '100101', 'dosen'),
 (2, 'Permana K.', '100102', 'dosen'),
-(2, 'Riani L.', '100103', 'dosen');
+(2, 'Riani L.', '100103', 'dosen'),
+(2, 'Hermawan S. ', '100104', 'dosen');
 
 --
 -- Indexes for dumped tables
@@ -194,6 +200,12 @@ ALTER TABLE `konsentrasi`
   ADD PRIMARY KEY (`id_kon`);
 
 --
+-- Indeks untuk tabel `list_skripsi`
+--
+ALTER TABLE `list_skripsi`
+  ADD PRIMARY KEY (`id_skripsi`);
+
+--
 -- Indeks untuk tabel `mahasiswa`
 --
 ALTER TABLE `mahasiswa`
@@ -210,10 +222,16 @@ ALTER TABLE `skripsi`
 --
 
 --
+-- AUTO_INCREMENT untuk tabel `list_skripsi`
+--
+ALTER TABLE `list_skripsi`
+  MODIFY `id_skripsi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+
+--
 -- AUTO_INCREMENT untuk tabel `skripsi`
 --
 ALTER TABLE `skripsi`
-  MODIFY `id_skripsi` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `id_skripsi` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

@@ -48,7 +48,7 @@ $cek = mysqli_num_rows(mysqli_query($conn,"select * from skripsi where konsentra
             </div>
             <ul class="sidebar-menu">
               <li><a class="nav-link" href="index-dosen.php"><i class="fas fa-university"></i> <span>Pemberitahuan</span></a></li>
-              <li><a class="nav-link " href="dosen-ideskripsi.php"><i class="fas fa-file-alt"></i> <span>Ide Skripsi</span></a></li>
+              <li><a class="nav-link " href="dosen-ideskripsi.php"><i class="fas fa-file-alt"></i> <span>Skripsi</span></a></li>
               <li  class="active"><a class="nav-link " href="list-skripsi.php"><i class="fas fa-folder-open"></i> <span>List Skripsi</span></a></li>
             </ul>
           </aside>

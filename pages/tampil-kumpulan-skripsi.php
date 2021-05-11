@@ -21,7 +21,7 @@ $konsen = $d['konsentrasi'];
 					?>
 					<tr>
 						<td>
-							<h5><small><i class="fas fa-book"></i><small> <a href="ide-skripsi.php?file=<?php echo $r['file']; ?>"><?php echo $r['file']; ?></a></small></h5>
+							<h5><small><i class="fas fa-book"></i><small> <a href="upload-skripsi.php?file=<?php echo $r['file']; ?>"><?php echo $r['file']; ?></a></small></h5>
 						</td>
 					</tr>
 				<?php } ?>

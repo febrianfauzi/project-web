@@ -11,7 +11,7 @@ $sta = mysqli_query($conn,"select * from dosen where nidn='$nidn'");
 $d=mysqli_fetch_array($sta);
 $konsen = $d['konsentrasi'];
 
-$cek = mysqli_num_rows(mysqli_query($conn,"select * from skripsi where konsentrasi='$konsen' and status ='Tunggu'"));
+$cek = mysqli_num_rows(mysqli_query($conn,"select * from skripsi where konsentrasi='$konsen' and dosen='$user' and status ='Tunggu'"));
 
 ?>
 <?php include ("../template/header.php"); ?>

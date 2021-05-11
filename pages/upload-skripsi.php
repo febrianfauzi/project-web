@@ -10,6 +10,17 @@ $d=mysqli_fetch_array($sta);
 
 $cek = mysqli_num_rows(mysqli_query($conn,"select * from skripsi where nama = '$user'"));
 
+if(ISSET($_REQUEST['file'])){
+ $file = $_REQUEST['file'];
+ 
+  //header("Cache-Control: public");
+  //header("Content-Description: File Transfer");
+ header("Content-Disposition: attachment; filename=".basename($file));
+ header("Content-Type: application/octet-stream;");
+  //header("Content-Transfer-Encoding: binary");
+ readfile("../file/skripsi/".$file);
+}
+
 ?>
 <?php include ("../template/header.php"); ?>
 <body>

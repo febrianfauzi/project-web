@@ -21,7 +21,7 @@ mysqli_query($conn,"insert into skripsi values(null,'$judul','$deskripsi','$nama
  //mengganti nama pdf
  $nama_baru = $judul."_".$data['id_skripsi'].".pdf"; //hasil contoh: file_1.pdf
  $file_temp = $_FILES['nama_file']['tmp_name']; //data temp yang di upload
- $folder    = "file"; //folder tujuan
+ $folder    = "../../file/proposal"; //folder tujuan
 
  move_uploaded_file($file_temp, "$folder/$nama_baru"); //fungsi upload
  //update nama file di database

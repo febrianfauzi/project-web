@@ -15,7 +15,7 @@ $konsen = $d['konsentrasi'];
 	<h4>Ide Skripsi Yang Tersedia!</h4>
 	<table>
 		<?php 
-		$data = mysqli_query($conn,"select * from skripsi where konsentrasi='$konsen' and status = 'Tunggu'");
+		$data = mysqli_query($conn,"select * from skripsi where konsentrasi='$konsen' and dosen='$user' and status = 'Tunggu'");
 		while($r=mysqli_fetch_array($data)){
 			?>
 			<tr>

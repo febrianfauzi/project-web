@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 10 Bulan Mei 2021 pada 15.34
+-- Waktu pembuatan: 12 Bulan Mei 2021 pada 01.18
 -- Versi server: 10.4.18-MariaDB
 -- Versi PHP: 8.0.5
 
@@ -225,13 +225,13 @@ ALTER TABLE `skripsi`
 -- AUTO_INCREMENT untuk tabel `list_skripsi`
 --
 ALTER TABLE `list_skripsi`
-  MODIFY `id_skripsi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `id_skripsi` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
 
 --
 -- AUTO_INCREMENT untuk tabel `skripsi`
 --
 ALTER TABLE `skripsi`
-  MODIFY `id_skripsi` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=29;
+  MODIFY `id_skripsi` int(8) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=32;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;

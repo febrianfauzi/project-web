@@ -10,7 +10,7 @@
 		$dup = mysqli_num_rows(mysqli_query($conn,"select * from mahasiswa where nim = '$nim'"));
 		if ($dup == 0) {
 			mysqli_query($conn,"insert into mahasiswa values('$nim','$nama','$jurusan','$konsentrasi','$email','Mahasiswa')");
-			mysqli_query($conn,"insert into user values('3','$nama','$nim','mahasiswa')");
+			mysqli_query($conn,"insert into user values('3','$nama','$nim','mahasiswa','../assets/img/avatar/avatar-2.png')");
 		}
 	}
 ?>

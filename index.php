@@ -24,6 +24,8 @@ if (isset($_POST['login'])) {
         $_SESSION['users'] = "Admin";
         $_SESSION['id'] = $data['user'];
         $_SESSION['nama'] = $data['nama'];
+        $_SESSION['role'] = $data['role'];
+        $_SESSION['picture'] = $data['gambar'];
         
             // alihkan ke halaman dashboard admin
         echo "<script>document.location.href='pages';alert('Login Berhasil Sebagai Admin');</script>";
@@ -31,12 +33,16 @@ if (isset($_POST['login'])) {
         $_SESSION['users'] = "Dosen";
         $_SESSION['id'] = $data['user'];
         $_SESSION['nama'] = $data['nama'];
+        $_SESSION['role'] = $data['role'];
+        $_SESSION['picture'] = $data['gambar'];
             // alihkan ke halaman dashboard admin
         echo "<script>alert('Login Berhasil Sebagai $data[nama]');document.location.href='pages/index-dosen.php';</script>";
       }elseif($data['role'] == 3){
         $_SESSION['users'] = "Mahasiswa";
         $_SESSION['id'] = $data['user'];
         $_SESSION['nama'] = $data['nama'];
+        $_SESSION['role'] = $data['role'];
+        $_SESSION['picture'] = $data['gambar'];
             // alihkan ke halaman dashboard admin
         echo "<script>alert('Login Berhasil Sebagai $data[nama]');document.location.href='pages/index-mahasiswa.php';</script>";
       }

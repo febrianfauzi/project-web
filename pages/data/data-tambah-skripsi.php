@@ -6,13 +6,18 @@ $nama = $_POST['nama'];
 $konsentrasi = $_POST['konsentrasi'];
 $dosen = $_POST['pembimbing'];
 
+$nidnDosen = mysqli_query($conn,"select * from dosen where nama='$dosen'");
+$p=mysqli_fetch_array($nidnDosen);
+$nidn = $p['nidn'];
+$nim = $_POST['nim'];
+
 if ($judul != "") {
 	 
 	$tipe_file = $_FILES['nama_file']['type']; //mendapatkan mime type
 if ($tipe_file == "application/pdf"){ //mengecek apakah file tersebu pdf atau bukan
  $nama_file = trim($_FILES['nama_file']['name']);
 
-mysqli_query($conn,"insert into skripsi values(null,'$judul','$deskripsi','$nama','$dosen','Tunggu','$konsentrasi','','')");
+mysqli_query($conn,"insert into skripsi values(null,'$judul','$deskripsi','$nama','$dosen','Tunggu','$konsentrasi','','','$nidn','$nim')");
 
  //dapatkan id terkahir
  $query = mysqli_query($conn,"SELECT id_skripsi FROM skripsi ORDER BY id_skripsi DESC LIMIT 1");

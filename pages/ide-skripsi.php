@@ -27,29 +27,6 @@ if(ISSET($_REQUEST['file'])){
 
 ?>
 <?php include ("../template/header.php"); ?>
-<body>
-  <div id="app">
-    <div class="main-wrapper">
-      <div class="navbar-bg"></div>
-      <nav class="navbar navbar-expand-lg main-navbar">
-        <form class="form-inline mr-auto">
-          <ul class="navbar-nav mr-3">
-            <li><a href="#" data-toggle="sidebar" class="nav-link nav-link-lg"><i class="fas fa-bars"></i></a></li>
-          </ul>
-        </form>
-        <ul class="navbar-nav navbar-right">
-          <li class="dropdown">
-            <a href="#" data-toggle="dropdown" class="nav-link dropdown-toggle nav-link-lg nav-link-user">
-              <img alt="image" src="../assets/img/avatar/avatar-1.png" class="rounded-circle mr-1">
-              <div class="d-sm-none d-lg-inline-block"><?php echo $user; ?></div></a>
-              <div class="dropdown-menu dropdown-menu-right">
-                <a href="../logout.php" class="dropdown-item has-icon text-danger">
-                  <i class="fas fa-sign-out-alt"></i> Logout
-                </a>
-              </div>
-            </li>
-          </ul>
-        </nav>
         <div class="main-sidebar">
           <aside id="sidebar-wrapper">
             <div class="sidebar-brand">
@@ -61,7 +38,7 @@ if(ISSET($_REQUEST['file'])){
             <ul class="sidebar-menu">
               <li><a class="nav-link" href="index-mahasiswa.php"><i class="fas fa-university"></i> <span>Pemberitahuan</span></a></li>
               <li class="active"><a class="nav-link" href="ide-skripsi.php"><i class="fas fa-file-alt"></i> <span>Skripsi</span></a></li>
-              <li><a class="nav-link" href="#"><i class="fas fa-comment-dots"></i> <span >Pesan</span></a></li>
+              <li><a class="nav-link" href="chat/chatMahasiswa.php"><i class="fas fa-comment-dots"></i> <span>Pesan</span></a></li>
               <li><a class="nav-link" href="upload-skripsi.php"><i class="fas fa-folder-open"></i> <span>Upload Skripsi</span></a></li>
             </ul>
           </aside>
@@ -93,6 +70,7 @@ if(ISSET($_REQUEST['file'])){
                                 <input type="text" class="form-control" name="judul" placeholder="Judul Skripsi" required>
                                 <input type="hidden" name="nama" value="<?php echo $user; ?>">
                                 <input type="hidden" name="konsentrasi" value="<?php echo $d['konsentrasi']; ?>">
+                                <input type="hidden" name="nim" value="<?php echo $nim ?>">
                               </div>
                               <div class="form-group">
                                 <textarea class="form-control" name="deskripsi" placeholder="Deskripsi" style="height: 200px;" required></textarea>

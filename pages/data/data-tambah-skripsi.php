@@ -31,7 +31,7 @@ mysqli_query($conn,"insert into skripsi values(null,'$judul','$deskripsi','$nama
  move_uploaded_file($file_temp, "$folder/$nama_baru"); //fungsi upload
  //update nama file di database
  mysqli_query($conn,"UPDATE skripsi SET file='$nama_baru' WHERE id_skripsi='$data[id_skripsi]'");
- header('location:../ide-skripsi.php');
+ header('location:../mahasiswa/ide-skripsi.php');
 
 }
 

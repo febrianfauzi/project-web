@@ -2,5 +2,5 @@
 session_start();
 
 if (!isset($_SESSION['nama'])) {
-    echo '<script>alert("Login Terlebih Dahulu!");document.location="../index.php";</script>';
+    echo '<script>alert("Login Terlebih Dahulu!");document.location="../admin/index.php";</script>';
 }

@@ -22,7 +22,7 @@ mysqli_query($conn,"insert into list_skripsi values(null,'$judul','')");
  move_uploaded_file($file_temp, "$folder/$nama_baru"); //fungsi upload
  //update nama file di database
  mysqli_query($conn,"UPDATE list_skripsi SET file='$nama_baru' WHERE id_skripsi='$data[id_skripsi]'");
- header('location:../upload-skripsi.php');
+ header('location:../mahasiswa/upload-skripsi.php');
 
 }
 

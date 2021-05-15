@@ -53,16 +53,17 @@ $role = $_SESSION['role'];
       <div class="main-sidebar">
     <aside id="sidebar-wrapper">
         <div class="sidebar-brand">
-            <a href="../index-mahasiswa.php">Sistem Skripsi</a>
+            <a href="../mahasiswa/index-mahasiswa.php">Sistem Skripsi</a>
         </div>
         <div class="sidebar-brand sidebar-brand-sm">
-            <a href="../index-mahasiswa.php">SS</a>
+            <a href="../mahasiswa/index-mahasiswa.php">SS</a>
         </div>
         <ul class="sidebar-menu">
-            <li><a class="nav-link" href="../index-mahasiswa.php"><i class="fas fa-university"></i> <span>Pemberitahuan</span></a></li>
-              <li><a class="nav-link" href="../ide-skripsi.php"><i class="fas fa-file-alt"></i> <span>Skripsi</span></a></li>
+          <li><a class="nav-link" href="../mahasiswa/profile-mahasiswa.php"><i class="fas fa-user"></i> <span>Profile</span></a></li>
+            <li><a class="nav-link" href="../mahasiswa/index-mahasiswa.php"><i class="fas fa-university"></i> <span>Pemberitahuan</span></a></li>
+              <li><a class="nav-link" href="../mahasiswa/ide-skripsi.php"><i class="fas fa-file-alt"></i> <span>Skripsi</span></a></li>
               <li class="active"><a class="nav-link" href="chatMahasiswa.php"><i class="fas fa-comment-dots"></i> <span>Pesan</span></a></li>
-              <li><a class="nav-link" href="../upload-skripsi.php"><i class="fas fa-folder-open"></i> <span>Upload Skripsi</span></a></li>
+              <li><a class="nav-link" href="../mahasiswa/upload-skripsi.php"><i class="fas fa-folder-open"></i> <span>Upload Skripsi</span></a></li>
         </ul>
     </aside>
 </div>

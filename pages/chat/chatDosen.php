@@ -52,16 +52,17 @@ $role = $_SESSION['role'];
       <div class="main-sidebar">
         <aside id="sidebar-wrapper">
           <div class="sidebar-brand">
-            <a href="../index-dosen.php">Sistem Skripsi</a>
+            <a href="../dosen/index-dosen.php">Sistem Skripsi</a>
           </div>
           <div class="sidebar-brand sidebar-brand-sm">
-            <a href="../index-dosen.php">SS</a>
+            <a href="../dosen/index-dosen.php">SS</a>
           </div>
           <ul class="sidebar-menu">
-            <li><a class="nav-link" href="../index-dosen.php"><i class="fas fa-university"></i> <span>Pemberitahuan</span></a></li>
-            <li><a class="nav-link " href="../dosen-ideskripsi.php"><i class="fas fa-file-alt"></i> <span>Skripsi</span></a></li>
+            <li><a class="nav-link" href="../dosen/profile-dosen.php"><i class="fas fa-user"></i> <span>Profile</span></a></li>
+            <li><a class="nav-link" href="../dosen/index-dosen.php"><i class="fas fa-university"></i> <span>Pemberitahuan</span></a></li>
+            <li><a class="nav-link " href="../dosen/dosen-ideskripsi.php"><i class="fas fa-file-alt"></i> <span>Skripsi</span></a></li>
             <li class="active"><a class="nav-link" href="chatDosen.php"><i class="fas fa-comment-dots"></i> <span >Pesan</span></a></li>
-            <li><a class="nav-link " href="../list-skripsi.php"><i class="fas fa-folder-open"></i> <span>List Skripsi</span></a></li>
+            <li><a class="nav-link " href="../dosen/list-skripsi.php"><i class="fas fa-folder-open"></i> <span>List Skripsi</span></a></li>
         </ul>
         </aside>
       </div>
